@@ -56,18 +56,37 @@ make -C 00-hello-world help    # every hook should say "defined"
 make -C 00-hello-world test    # unit tests, then the 10 public black-box tests
 ```
 
-## 4. Replace the template CI with the curriculum's
+## 4. Define the toolchain image
+
+In `Containerfile`, start from the language's **official image**, pinned by digest, and add
+what the curriculum's tooling needs: `python3` (3.11 or newer, for the black-box runner) and
+`make`. Building, unit tests, and black-box tests then all run in that one image.
+
+```dockerfile
+FROM docker.io/library/rust:1-slim-trixie@sha256:<index digest>
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3 make \
+    && rm -rf /var/lib/apt/lists/*
+ENV DP_IN_CONTAINER=1
+```
+
+`BASE-MAKEFILE` includes the curriculum's copy of `tools/container.mk`, so `make all`,
+`make test`, and every other target run in this image by default. Use `DP_RUNTIME=local`
+for native builds on your own operating system.
+
+## 5. Replace the template CI with the curriculum's
 
 Copy `sdlc-curriculum/shared/ci/cross-platform-ci.yml` over `.github/workflows/ci.yml`. Then
 edit the two places marked `EDIT`: the list of implemented projects, and the toolchain setup
 step. Pin any action you add to a full commit SHA. The workflow keeps the organization's
-**DCO** and **CI result** jobs, and runs `make all`, `lint`, `test`, `test-hidden`, and an
-install round trip on Linux, macOS, and Windows.
+**Shared tooling**, **DCO**, and **CI result** jobs. It runs `make all`, `lint`, `test`,
+`test-hidden`, and an install round trip in a **Podman container** on Linux, and **natively**
+(`DP_RUNTIME=local`) on Linux, macOS, and Windows.
 
 Add your package ecosystem (for example `pip`, `uv`, `cargo`, or `gomod`) to
 `.github/dependabot.yml`.
 
-## 5. Design before you build
+## 6. Design before you build
 
 Complete `hld.md` and `lld.md` before you write code, then keep `rtm.md` and
 `master-test-plan.md` current as you implement (curriculum

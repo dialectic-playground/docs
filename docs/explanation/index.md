@@ -19,6 +19,7 @@ considered, and how the parts relate. They support understanding rather than act
 | :-- | :-- | :-- |
 | [Specification-driven development](specification-driven-development.md) | Why every tool is specified to the byte before any code is written | Ready |
 | [Cross-platform determinism](cross-platform-determinism.md) | How identical output on Linux, macOS, and Windows is achieved, and what it costs | Ready |
+| [Container-first development](container-first-development.md) | Why every task runs in a pinned toolchain container, and how that fits the cross-platform promise | Ready |
 | [How these docs are organized](how-these-docs-are-organized.md) | The Diátaxis framework and how this site applies it | Ready |
 
 **Status:** *Ready* pages are complete. *Draft* pages describe their planned content and audience.

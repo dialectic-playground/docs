@@ -25,7 +25,8 @@ is published on the site as
    table.
 4. **Link, don't copy.** Authoritative specifications live in
    [`sdlc-curriculum`](https://github.com/dialectic-playground/sdlc-curriculum).
-5. **Build strictly** before you push: `uv run mkdocs build --strict`.
+5. **Build strictly** before you push: `make check` (preview with `make serve`). Both run in the
+   toolchain container; see the README.
 6. **Commit with sign-off** (`git commit -s`) and **open a pull request** against `main`
    with a Conventional Commit title, e.g. `docs(how-to): add guide for X`. The **CI result**
    check must pass.

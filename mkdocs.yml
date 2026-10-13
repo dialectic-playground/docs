@@ -123,6 +123,7 @@ nav:
       - reference/index.md
       - Repositories: reference/repositories.md
       - Organization settings: reference/organization.md
+      - Container tooling: reference/container-tooling.md
       - Curriculum:
           - reference/curriculum/index.md
       - Languages:
@@ -131,4 +132,5 @@ nav:
       - explanation/index.md
       - Specification-driven development: explanation/specification-driven-development.md
       - Cross-platform determinism: explanation/cross-platform-determinism.md
+      - Container-first development: explanation/container-first-development.md
       - How these docs are organized: explanation/how-these-docs-are-organized.md

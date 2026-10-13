@@ -19,6 +19,10 @@ From the project directory (for example `00-hello-world/`):
 | `make grade` | Both suites |
 
 Each target builds first (`make all`), then calls the curriculum's runner with your `BIN_DIR`.
+Like every target, they run in your repository's toolchain container by default, so they
+test the Linux build. To test your own operating system's native build, add
+`DP_RUNTIME=local` (for example `DP_RUNTIME=local make test`). CI does both. See
+[Container-first development](../explanation/container-first-development.md).
 
 ## Run one test directly
 
