@@ -1,0 +1,17 @@
+[project]
+name = "dialectic-playground-docs"
+version = "0.1.0"
+description = "Dialectic Playground documentation site (MkDocs + Material, organized with Diátaxis)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Keep MkDocs below 2.0: MkDocs 2.0 drops the plugin and theme systems that Material for
+    # MkDocs depends on (squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/).
+    # The planned successor path is Zensical, which reads this project's mkdocs.yml.
+    "mkdocs>=1.6,<2",
+    "mkdocs-material>=9.7,<10",
+]
+
+[tool.uv]
+# This repository is a documentation project, not an installable Python package.
+package = false

@@ -1,0 +1,132 @@
+# Dialectic Playground documentation: MkDocs + Material for MkDocs.
+#
+# Content is organized with the Diátaxis framework (https://diataxis.fr): one top-level
+# navigation tab per quadrant (Tutorials, How-to guides, Reference, Explanation).
+# See README.md for local builds and CONTRIBUTING.md for authoring rules.
+#
+# Configuration is kept to standard MkDocs/Material settings so that it stays
+# compatible with Zensical (the Material team's successor, which reads mkdocs.yml).
+
+site_name: Dialectic Playground Docs
+site_description: >-
+  Documentation for Dialectic Playground, a polyglot workshop exploring language
+  design, implementations, and shared tooling.
+site_url: https://dialectic-playground.github.io/docs/
+site_author: Dialectic Playground
+copyright: Copyright &copy; 2026 Dialectic Playground. Licensed under MIT.
+
+repo_name: dialectic-playground/docs
+repo_url: https://github.com/dialectic-playground/docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/brand/icon.svg
+  favicon: assets/brand/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.tabs          # one tab per Diátaxis quadrant
+    - navigation.sections
+    - navigation.indexes       # each quadrant's index.md is its landing page
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dialectic-playground
+      name: Dialectic Playground on GitHub
+
+plugins:
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+# Files under docs/ that are not pages.
+exclude_docs: |
+  assets/brand/README.md
+
+# Broken internal links and anchors are errors in CI (`mkdocs build --strict`).
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+nav:
+  - Home: index.md
+  - Tutorials:
+      - tutorials/index.md
+      - Your first curriculum project: tutorials/first-curriculum-project.md
+  - How-to guides:
+      - how-to/index.md
+      - Set up a language repository: how-to/set-up-a-language-repository.md
+      - Run the black-box tests: how-to/run-the-black-box-tests.md
+      - Contribute documentation: how-to/contribute-documentation.md
+  - Reference:
+      - reference/index.md
+      - Repositories: reference/repositories.md
+      - Curriculum:
+          - reference/curriculum/index.md
+      - Languages:
+          - reference/languages/index.md
+  - Explanation:
+      - explanation/index.md
+      - Specification-driven development: explanation/specification-driven-development.md
+      - Cross-platform determinism: explanation/cross-platform-determinism.md
+      - How these docs are organized: explanation/how-these-docs-are-organized.md
