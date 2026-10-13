@@ -12,9 +12,9 @@ toolchain.
 
 ```sh
 git submodule add https://github.com/dialectic-playground/sdlc-curriculum
-git -C sdlc-curriculum checkout v1.0.0
+git -C sdlc-curriculum checkout v1.1.0
 git add .gitmodules sdlc-curriculum
-git commit -s -m "build: pin sdlc-curriculum to v1.0.0"
+git commit -s -m "build: pin sdlc-curriculum to v1.1.0"
 ```
 
 Pin a [release tag](https://github.com/dialectic-playground/sdlc-curriculum/releases), never a
@@ -99,11 +99,13 @@ A project is done when `make lint test test-hidden` passes on all three operatin
 
 ```sh
 git -C sdlc-curriculum fetch --tags
-git -C sdlc-curriculum checkout v1.1.0
-git add sdlc-curriculum && git commit -s -m "build: upgrade sdlc-curriculum to v1.1.0"
+git -C sdlc-curriculum checkout v1.2.0
+git add sdlc-curriculum && git commit -s -m "build: upgrade sdlc-curriculum to v1.2.0"
 ```
 
-Read the release notes first. A MAJOR release can change specified behavior or fixtures.
+Read the release notes first. A MAJOR release can change specified behavior or fixtures. A
+release that keeps the specification version (`spec_version`) unchanged never requires
+implementation changes.
 
 ### Implement only some projects
 

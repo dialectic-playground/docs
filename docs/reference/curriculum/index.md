@@ -6,7 +6,11 @@ documents are the source of truth.
 
 | Current release | Spec version | Pin language repositories to |
 | :-- | :-- | :-- |
-| [v1.0.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.0.0) | `1.0.0` (printed by every tool's `--version`) | the release tag, never a branch |
+| [v1.1.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.1.0) | `1.0.0` (printed by every tool's `--version`) | the release tag, never a branch |
+
+Release tags and the spec version are separate: a release can add templates or tooling
+without changing specified behavior. See the curriculum's
+[versioning policy](https://github.com/dialectic-playground/sdlc-curriculum#versioning).
 
 The links below point to `main`. For the exact text of a release, browse the repository at
 its tag.
