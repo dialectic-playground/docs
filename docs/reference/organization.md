@@ -32,7 +32,7 @@ request, never in the GitHub UI.
 
 | Setting | Value |
 | :-- | :-- |
-| Allowed actions | GitHub-owned, Marketplace verified creators, and `astral-sh/setup-uv@*` |
+| Allowed actions | GitHub-owned, Marketplace verified creators, and these named actions for toolchain setup: `astral-sh/setup-uv`, `haskell-actions/setup`, `julia-actions/setup-julia`, `shivammathur/setup-php`, `ruby/setup-ruby`, `shogo82148/actions-setup-perl`, `msys2/setup-msys2` (each `@*`, still SHA-pinned) |
 | Pinning | Every action must be pinned to a full commit SHA (`uses: owner/action@<sha> # vX.Y.Z`) |
 | Default `GITHUB_TOKEN` permissions | Read-only; workflows cannot approve pull requests |
 | Workflow runs from outside contributors | Require approval for every outside contributor |
