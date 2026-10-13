@@ -80,6 +80,7 @@ In a container, `dp-run`:
 | **Container (podman)** | `make check` (and repository extras) with `DP_RUNTIME=podman` on Linux |
 | **Native (…)** | `make check` with `DP_RUNTIME=local`; Linux everywhere, plus macOS and Windows for the curriculum and language repositories |
 | **Shared tooling** | Compares `tools/dp-run` and `tools/container.mk` with the canonical copies |
+| **CI result** | The required check: verifies that every job of the run succeeded ([details](organization.md#ci-conventions-every-repository)) |
 
 ## Images in use
 

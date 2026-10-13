@@ -93,7 +93,7 @@ making a program behave identically everywhere is the cross-platform lesson.
 ## Further reading
 
 - [CLI conventions](https://github.com/dialectic-playground/sdlc-curriculum/blob/main/shared/CLI-CONVENTIONS.md):
-  the normative rules (CONV-01 … CONV-30).
+  the normative rules (CONV-01 … CONV-31).
 - [Run the black-box tests](../how-to/run-the-black-box-tests.md): the most common
   determinism failures and their fixes.
 - [Specification-driven development](specification-driven-development.md).

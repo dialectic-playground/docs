@@ -8,11 +8,11 @@ The [`py`](https://github.com/dialectic-playground/py) repository implements the
 | Property | Value |
 | :-- | :-- |
 | Repository | [`dialectic-playground/py`](https://github.com/dialectic-playground/py) |
-| Status | Active: repository and toolchain ready; no projects implemented yet |
+| Status | Active: Project 00 implemented |
 | File extension | `.py` |
 | Release line | Python 3.14 |
 | Build / package tool | uv |
-| Curriculum | Submodule pinned to [v1.2.1](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.2.1) |
+| Curriculum | Submodule pinned to [v1.5.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.5.0) |
 | Brand accent | `#3572A5`, glyph `py`; GitHub Linguist `#3572A5` |
 
 ## Language characteristics
@@ -33,14 +33,29 @@ The [`py`](https://github.com/dialectic-playground/py) repository implements the
 
 `make toolchain` verifies both environments. It checks that every tool is on the release line above.
 
+### Project tooling
+
+What each project's `Makefile` hooks run. Versions are the ones pinned in the repository
+(lockfile, `Containerfile`, or CI).
+
+| Purpose | Tool |
+| :-- | :-- |
+| Unit tests | pytest 9.1.1 |
+| Lint | ruff 0.17.0 (`ruff check`, `ruff format --check`) and mypy 2.4.0 (`--strict`) |
+| Format | `ruff format` (ruff 0.17.0) |
+| Dependencies | One uv project per project (`pyproject.toml` + committed `uv.lock`, dev dependency group), installed with `uv sync --locked` |
+| Build output (`BIN_DIR`) | `.venv/bin/` (`.venv/Scripts/` on Windows): the console script that uv generates |
+| Install | Creates a virtual environment under `$(LIBDIR)/py/<project>/` and writes a `#!/bin/sh` launcher to `$(BINDIR)` |
+
 ## Implemented projects
 
-None yet. A project is implemented once it is listed in `IMPLEMENTED` in the repository's
-root `Makefile`.
+A project is implemented once it is listed in `IMPLEMENTED` in the repository's root
+`Makefile`. CI then builds, lints, and tests it in the container and natively on Linux,
+macOS, and Windows.
 
 | # | Project | Status |
 | :-- | :-- | :-- |
-| 00 | hello-world | Not started |
+| 00 | hello-world | [Implemented](https://github.com/dialectic-playground/py/tree/main/00-hello-world) |
 | 01 | echo | Not started |
 | 02 | cat | Not started |
 | 03 | head-tail | Not started |
@@ -51,6 +66,12 @@ root `Makefile`.
 | 08 | env-run | Not started |
 | 09 | kv-store | Not started |
 | 10 | sys-monitor | Not started |
+
+### Notes
+
+- uv generates a `#!` console script on Linux and macOS and a native `dp-*.exe` launcher on
+  Windows, so `BIN_DIR` works with the black-box runner on every OS without a hand-written
+  launcher.
 
 ## See also
 

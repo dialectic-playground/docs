@@ -77,7 +77,8 @@ including organization owners:
 | :-- | :-- |
 | Workflow file and name | `.github/workflows/ci.yml`, named **CI**, with every job and step named |
 | Jobs | **Container (podman)** and **Native** (both run `make check`), **Shared tooling** (except in `.github`), **DCO**, **CI result** |
-| Required check | A final **CI result** job that passes only if every other job succeeded or was skipped |
+| Triggers | Pushes to `main`, pull requests, manual runs (`workflow_dispatch`), and a weekly scheduled run (`cron: "23 4 * * 1"`, Mondays 04:23 UTC) that catches toolchain and runner drift even when nothing changes |
+| Required check | A final **CI result** job (`if: always()`, `actions: read`). It fails if any job it needs failed or was cancelled, then lists every job of its own run attempt through the Actions API and fails unless each one succeeded (only **DCO** may be skipped, outside pull requests). A matrix job reports one combined result to `needs`, which can hide a cancelled leg such as a runner that never started; the run-wide check catches it. |
 | DCO | A **DCO** job that fails a pull request if any commit lacks a `Signed-off-by:` line matching its author (bot commits are exempt) |
 | Pull request titles | [Conventional Commits](https://www.conventionalcommits.org/); the title becomes the squash commit on `main` |
 

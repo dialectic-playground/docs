@@ -6,22 +6,22 @@ and tested in its toolchain container and natively on Linux, macOS, and Windows.
 
 | Language | Repository | Extension | Release line | Build / package tool | Status | Projects implemented |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
-| [C](c.md) | [`c`](https://github.com/dialectic-playground/c) | `.c` | C17 (GCC 16 in the container) | make | Active | — |
-| [C#](cs.md) | [`cs`](https://github.com/dialectic-playground/cs) | `.cs` | .NET 10 (LTS) | dotnet CLI (NuGet) | Active | — |
-| [C++](cpp.md) | [`cpp`](https://github.com/dialectic-playground/cpp) | `.cpp` | C++20 (GCC 16 in the container) | CMake | Active | — |
-| [Go](go.md) | [`go`](https://github.com/dialectic-playground/go) | `.go` | Go 1.27 | Go modules | Active | — |
-| [Haskell](hs.md) | [`hs`](https://github.com/dialectic-playground/hs) | `.hs` | GHC 9.14 | cabal | Active | — |
-| [Java](java.md) | [`java`](https://github.com/dialectic-playground/java) | `.java` | Java 25 (LTS, Eclipse Temurin) | Maven | Active | — |
-| [JavaScript](js.md) | [`js`](https://github.com/dialectic-playground/js) | `.js` | Node.js 24 (LTS) | npm | Active | — |
-| [Julia](jl.md) | [`jl`](https://github.com/dialectic-playground/jl) | `.jl` | Julia 1.13 | Pkg | Active | — |
-| [Objective-C](objc.md) | [`objc`](https://github.com/dialectic-playground/objc) | `.m` | Objective-C with Foundation (GNUstep Base; Apple Foundation on macOS) | GNUstep Make | Active | — |
-| [Perl](pl.md) | [`pl`](https://github.com/dialectic-playground/pl) | `.pl` | Perl 5.42 | cpanm (cpanfile) | Active | — |
-| [PHP](php.md) | [`php`](https://github.com/dialectic-playground/php) | `.php` | PHP 8.5 | Composer | Active | — |
-| [Python](py.md) | [`py`](https://github.com/dialectic-playground/py) | `.py` | Python 3.14 | uv | Active | — |
-| [Ruby](rb.md) | [`rb`](https://github.com/dialectic-playground/rb) | `.rb` | Ruby 4.0 | Bundler | Active | — |
-| [Rust](rs.md) | [`rs`](https://github.com/dialectic-playground/rs) | `.rs` | Rust 1.99 | cargo | Active | — |
-| [TypeScript](ts.md) | [`ts`](https://github.com/dialectic-playground/ts) | `.ts` | Node.js 24 (LTS); TypeScript via tsc as a project dependency | npm + tsc | Active | — |
-| [Visual Basic](vb.md) | [`vb`](https://github.com/dialectic-playground/vb) | `.vb` | VB.NET on .NET 10 (LTS) | dotnet CLI (NuGet) | Active | — |
+| [C](c.md) | [`c`](https://github.com/dialectic-playground/c) | `.c` | C17 (GCC 16 in the container) | make | Active | [00](https://github.com/dialectic-playground/c/tree/main/00-hello-world) |
+| [C#](cs.md) | [`cs`](https://github.com/dialectic-playground/cs) | `.cs` | .NET 10 (LTS) | dotnet CLI (NuGet) | Active | [00](https://github.com/dialectic-playground/cs/tree/main/00-hello-world) |
+| [C++](cpp.md) | [`cpp`](https://github.com/dialectic-playground/cpp) | `.cpp` | C++20 (GCC 16 in the container) | CMake | Active | [00](https://github.com/dialectic-playground/cpp/tree/main/00-hello-world) |
+| [Go](go.md) | [`go`](https://github.com/dialectic-playground/go) | `.go` | Go 1.27 | Go modules | Active | [00](https://github.com/dialectic-playground/go/tree/main/00-hello-world) |
+| [Haskell](hs.md) | [`hs`](https://github.com/dialectic-playground/hs) | `.hs` | GHC 9.14 | cabal | Active | [00](https://github.com/dialectic-playground/hs/tree/main/00-hello-world) |
+| [Java](java.md) | [`java`](https://github.com/dialectic-playground/java) | `.java` | Java 25 (LTS, Eclipse Temurin) | Maven | Active | [00](https://github.com/dialectic-playground/java/tree/main/00-hello-world) |
+| [JavaScript](js.md) | [`js`](https://github.com/dialectic-playground/js) | `.js` | Node.js 24 (LTS) | npm | Active | [00](https://github.com/dialectic-playground/js/tree/main/00-hello-world) |
+| [Julia](jl.md) | [`jl`](https://github.com/dialectic-playground/jl) | `.jl` | Julia 1.13 | Pkg | Active | [00](https://github.com/dialectic-playground/jl/tree/main/00-hello-world) |
+| [Objective-C](objc.md) | [`objc`](https://github.com/dialectic-playground/objc) | `.m` | Objective-C with Foundation (GNUstep Base; Apple Foundation on macOS) | GNU Make + `gnustep-config` | Active | [00](https://github.com/dialectic-playground/objc/tree/main/00-hello-world) |
+| [Perl](pl.md) | [`pl`](https://github.com/dialectic-playground/pl) | `.pl` | Perl 5.42 | cpanm (cpanfile) | Active | [00](https://github.com/dialectic-playground/pl/tree/main/00-hello-world) |
+| [PHP](php.md) | [`php`](https://github.com/dialectic-playground/php) | `.php` | PHP 8.5 | Composer | Active | [00](https://github.com/dialectic-playground/php/tree/main/00-hello-world) |
+| [Python](py.md) | [`py`](https://github.com/dialectic-playground/py) | `.py` | Python 3.14 | uv | Active | [00](https://github.com/dialectic-playground/py/tree/main/00-hello-world) |
+| [Ruby](rb.md) | [`rb`](https://github.com/dialectic-playground/rb) | `.rb` | Ruby 4.0 | Bundler | Active | [00](https://github.com/dialectic-playground/rb/tree/main/00-hello-world) |
+| [Rust](rs.md) | [`rs`](https://github.com/dialectic-playground/rs) | `.rs` | Rust 1.99 | cargo | Active | [00](https://github.com/dialectic-playground/rs/tree/main/00-hello-world) |
+| [TypeScript](ts.md) | [`ts`](https://github.com/dialectic-playground/ts) | `.ts` | Node.js 24 (LTS); TypeScript via tsc as a project dependency | npm + tsc | Active | [00](https://github.com/dialectic-playground/ts/tree/main/00-hello-world) |
+| [Visual Basic](vb.md) | [`vb`](https://github.com/dialectic-playground/vb) | `.vb` | VB.NET on .NET 10 (LTS) | dotnet CLI (NuGet) | Active | [00](https://github.com/dialectic-playground/vb/tree/main/00-hello-world) |
 
 ## Shared layout
 
@@ -30,7 +30,10 @@ Every language repository follows the curriculum's
 a root `Makefile` (`make check` = repository checks + toolchain verification + every project
 listed in `IMPLEMENTED`), a toolchain `Containerfile`, the `sdlc-curriculum` submodule pinned
 to a release, and one workspace per curriculum project. A project counts as *implemented* once
-it is listed in `IMPLEMENTED`; CI then builds and tests it everywhere.
+it is listed in `IMPLEMENTED`; CI then builds and tests it everywhere. Project 00
+(`00-hello-world`, `dp-hello`) is implemented in all sixteen repositories, against curriculum
+[v1.5.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.5.0); see the
+[implementation status](../curriculum/index.md#implementation-status).
 
 ## Language characteristics
 

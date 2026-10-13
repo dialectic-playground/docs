@@ -36,7 +36,7 @@ python3 ../sdlc-curriculum/shared/tools/run-tests.py \
 
 | Option | Effect |
 | :-- | :-- |
-| `--bin-dir DIR` | Where the built `dp-*` executables are (`.exe` is accepted on Windows) |
+| `--bin-dir DIR` | Where the built `dp-*` tools are: native executables (`.exe` is accepted on Windows) or `#!` scripts |
 | `--only ID` | Run only this test; repeat it to run several |
 | `--timeout S` | Per-step timeout in seconds (default 10) |
 | `-q` | Print PASS/FAIL only, without diffs |
@@ -73,6 +73,25 @@ byte-for-byte.
 | Paths contain `\` on Windows | The OS path joiner was used | Join constructed paths with `/` ([CONV-20][conv]) |
 | Help text differs | Help text was paraphrased | Copy it byte-for-byte from the user manual's HELP OUTPUT ([CONV-23][conv]) |
 | `tool 'dp-x' not found` | `make all` did not produce the tool in `BIN_DIR` | Check `DP_BUILD` and `BIN_DIR` with `make help` |
+| `… is neither an .exe nor a script with a #! line` (Windows only) | The tool in `BIN_DIR` is a script without a `#!` first line | Start the launcher with a `#!` line (see below) |
+| `interpreter '…' not found on PATH` (Windows only) | The `#!` interpreter is not installed or not on `PATH` | Put the interpreter (for example `node`, `perl`, `java`) on `PATH` |
+
+## Test script tools on Windows
+
+Tools in interpreted or managed-runtime languages are usually `#!` launcher scripts, for
+example `#!/usr/bin/env node` or `#!/usr/bin/env -S julia --startup-file=no`. Windows has no
+shebang support, so on Windows the runner reads the script's `#!` line itself:
+
+1. It drops `/usr/bin/env` and its `-S` flag, if present.
+2. It resolves the interpreter's name on `PATH` (an absolute interpreter path is used as-is
+   only if it exists).
+3. It starts the interpreter directly, with the `#!` line's arguments and the script path,
+   never through `cmd.exe`, so the test's arguments arrive unmodified
+   ([CONV-27][conv]).
+
+So the same `make test` works on every OS, as long as the interpreter is on `PATH` in the
+shell you run it from. Native executables (`dp-x.exe`) are preferred when both exist. To run
+an installed script tool yourself on Windows, use Git Bash or MSYS2, which honor `#!` lines.
 
 ## How the tests run
 
