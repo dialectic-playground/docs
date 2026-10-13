@@ -51,8 +51,8 @@ serve?*
 - **Templates.** `templates/` in this repository has a starting skeleton for each kind of
   page. See [Contribute documentation](../how-to/contribute-documentation.md).
 - **Grow organically.** Diátaxis discourages planning large empty structures. Each quadrant
-  starts small and gains pages as real needs appear. Placeholder pages describe the content
-  planned for them, so the structure communicates intent.
+  starts small and gains pages as real needs appear. Pages marked *Draft* describe the
+  content planned for them, so the structure communicates intent.
 
 ## Further reading
 

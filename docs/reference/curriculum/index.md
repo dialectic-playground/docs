@@ -4,6 +4,13 @@ The [`sdlc-curriculum`](https://github.com/dialectic-playground/sdlc-curriculum)
 holds the authoritative specification for every project. This page indexes it; the linked
 documents are the source of truth.
 
+| Current release | Spec version | Pin language repositories to |
+| :-- | :-- | :-- |
+| [v1.0.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.0.0) | `1.0.0` (printed by every tool's `--version`) | the release tag, never a branch |
+
+The links below point to `main`. For the exact text of a release, browse the repository at
+its tag.
+
 ## Projects
 
 | # | Project | Tool(s) | User manual | SRS |

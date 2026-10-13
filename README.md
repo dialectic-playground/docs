@@ -41,8 +41,9 @@ CONTRIBUTING.md               ← authoring rules for this site
 .github/dependabot.yml        ← keeps actions and the docs toolchain current
 ```
 
-Pages marked as placeholders describe their planned content and audience. They are filled
-in as real needs appear, which is how Diátaxis suggests documentation should grow.
+Pages marked *Draft* describe their planned content and audience. They are completed as real
+needs appear, which is how Diátaxis suggests documentation should grow. Pages marked *Ready*
+are complete.
 
 ## Building locally
 

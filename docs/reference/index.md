@@ -19,5 +19,6 @@ Readers consult reference material while they work. They don't read it from star
 | Section | Describes |
 | :-- | :-- |
 | [Repositories](repositories.md) | Every repository in the organization, its purpose, and its status |
+| [Organization settings](organization.md) | Organization, Actions, security, repository, branch-protection, and CI settings, and where each is defined |
 | [Curriculum](curriculum/index.md) | The eleven curriculum projects, their tools, and where each specification lives |
 | [Languages](languages/index.md) | The language implementation repositories and their toolchains |

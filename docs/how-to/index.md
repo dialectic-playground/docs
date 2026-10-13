@@ -18,6 +18,9 @@ basics.
 
 | Guide | Goal | Status |
 | :-- | :-- | :-- |
-| [Set up a language repository](set-up-a-language-repository.md) | Start a new implementation repository wired to the curriculum | Planned |
-| [Run the black-box tests](run-the-black-box-tests.md) | Run the public and hidden suites against your build | Planned |
+| [Add a repository](add-a-repository.md) | Bring a new repository online, consistent with every other repository | Ready |
+| [Set up a language repository](set-up-a-language-repository.md) | Wire a new implementation repository to the curriculum | Ready |
+| [Run the black-box tests](run-the-black-box-tests.md) | Run the public and hidden suites against your build | Ready |
 | [Contribute documentation](contribute-documentation.md) | Add or change a page on this site | Ready |
+
+**Status:** *Ready* pages are complete. *Draft* pages describe their planned content and audience.

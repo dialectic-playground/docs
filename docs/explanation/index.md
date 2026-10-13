@@ -17,6 +17,8 @@ considered, and how the parts relate. They support understanding rather than act
 
 | Topic | Explores | Status |
 | :-- | :-- | :-- |
-| [Specification-driven development](specification-driven-development.md) | Why every tool is specified to the byte before any code is written | Planned |
-| [Cross-platform determinism](cross-platform-determinism.md) | How identical output on Linux, macOS, and Windows is achieved, and what it costs | Planned |
+| [Specification-driven development](specification-driven-development.md) | Why every tool is specified to the byte before any code is written | Ready |
+| [Cross-platform determinism](cross-platform-determinism.md) | How identical output on Linux, macOS, and Windows is achieved, and what it costs | Ready |
 | [How these docs are organized](how-these-docs-are-organized.md) | The Diátaxis framework and how this site applies it | Ready |
+
+**Status:** *Ready* pages are complete. *Draft* pages describe their planned content and audience.
