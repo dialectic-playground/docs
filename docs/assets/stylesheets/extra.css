@@ -1,0 +1,31 @@
+/* Dialectic Playground palette, matching the organization's brand assets
+   (dialectic-playground/.github → assets/README.md). */
+:root {
+  --dp-indigo: #1e1b4b;    /* background gradient */
+  --dp-thesis: #38bdf8;    /* sky ring */
+  --dp-antithesis: #fb7185;/* rose ring */
+  --dp-synthesis: #a78bfa; /* violet lens */
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--dp-indigo);
+  --md-primary-fg-color--light: #312e81;
+  --md-primary-fg-color--dark: #0b1120;
+  --md-accent-fg-color: #7c3aed;
+  --md-typeset-a-color: #4f46e5;   /* links must not use the near-black primary color */
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--dp-indigo);
+  --md-primary-fg-color--light: #312e81;
+  --md-primary-fg-color--dark: #0b1120;
+  --md-accent-fg-color: var(--dp-thesis);
+  --md-typeset-a-color: var(--dp-synthesis);
+  --md-hue: 245;
+}
+
+/* Diátaxis quadrant cards on the home page */
+.dp-quadrants .grid.cards > ul > li,
+.dp-quadrants.grid.cards > ul > li {
+  border-top: 3px solid var(--dp-synthesis);
+}
