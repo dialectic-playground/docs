@@ -66,7 +66,7 @@ the navigation. Pull requests cannot be merged while this fails.
 
 ## 6. Open a pull request
 
-Push a branch and open a pull request against `main`. The **Docs** workflow builds the site.
+Push a branch and open a pull request against `main`. The **CI** workflow builds the site.
 After you merge, it deploys to <https://dialectic-playground.github.io/docs/>.
 
 ## Linking to the curriculum

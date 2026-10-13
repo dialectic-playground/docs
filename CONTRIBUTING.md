@@ -22,7 +22,7 @@ is published on the site as
 4. **Link, don't copy.** Authoritative specifications live in
    [`sdlc-curriculum`](https://github.com/dialectic-playground/sdlc-curriculum).
 5. **Build strictly** before you push: `uv run mkdocs build --strict`.
-6. **Open a pull request** against `main`. The Docs workflow must pass.
+6. **Open a pull request** against `main`. The **CI** workflow must pass.
 
 ## Style
 

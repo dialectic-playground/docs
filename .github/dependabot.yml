@@ -1,0 +1,22 @@
+# Keeps GitHub Actions (SHA-pinned) and the locked docs toolchain current.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci
+
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      docs-toolchain:
+        patterns: ["*"]
+    commit-message:
+      prefix: build

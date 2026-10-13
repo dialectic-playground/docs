@@ -47,7 +47,7 @@ To change dependencies, run `uv add <package>` or `uv lock --upgrade`, and commi
 
 ## Publishing
 
-The **Docs** workflow (`.github/workflows/deploy.yml`) builds the site with `--strict` on
+The **CI** workflow (`.github/workflows/ci.yml`) builds the site with `--strict` on
 every pull request. Every push to `main` is deployed to GitHub Pages.
 
 ## Contributing
