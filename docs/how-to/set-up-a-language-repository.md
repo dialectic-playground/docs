@@ -1,9 +1,11 @@
 # Set up a language repository
 
-This guide sets up a repository that implements the
-[curriculum](../reference/curriculum/index.md) in one language, for example
-`dialectic-playground/rs`. It is step 4 of [Add a repository](add-a-repository.md): do steps
-1–3 of that checklist first.
+This guide turns a repository created from `repo-template` into a curriculum implementation
+repository for one language, following the curriculum's
+[language skeleton](https://github.com/dialectic-playground/sdlc-curriculum/blob/main/shared/templates/language/README.md).
+It is step 4 of [Add a repository](add-a-repository.md): do steps 1–3 of that checklist
+first. The sixteen existing language repositories ([Languages](../reference/languages/index.md))
+were all set up this way.
 
 **Assumes:** familiarity with git submodules, GitHub Actions, and the target language's
 toolchain.
@@ -12,86 +14,90 @@ toolchain.
 
 ```sh
 git submodule add https://github.com/dialectic-playground/sdlc-curriculum
-git -C sdlc-curriculum checkout v1.1.0
+git -C sdlc-curriculum checkout v1.2.1
 git add .gitmodules sdlc-curriculum
-git commit -s -m "build: pin sdlc-curriculum to v1.1.0"
 ```
 
 Pin a [release tag](https://github.com/dialectic-playground/sdlc-curriculum/releases), never a
 branch, so specification changes arrive only when you choose to upgrade.
 
-## 2. Copy the project workspaces
-
-For each project you implement, copy its language-neutral workspace from the curriculum:
+## 2. Copy every project workspace
 
 ```sh
-cp -r sdlc-curriculum/projects/00-hello-world/assignment 00-hello-world
+for project in sdlc-curriculum/projects/*/; do
+  name=$(basename "$project")
+  cp -r "$project/assignment" "$name"
+  sed -i 's#^CURRICULUM_ROOT ?= ../../..$#CURRICULUM_ROOT ?= ../sdlc-curriculum#' "$name/Makefile"
+done
 ```
 
-Each copy contains the project `Makefile` and blank `hld.md`, `lld.md`, `rtm.md`, and
-`master-test-plan.md` templates.
+Each workspace has the project `Makefile` (with empty `DP_*` hooks) and blank `hld.md`,
+`lld.md`, `rtm.md`, and `master-test-plan.md`. `make check` fails if a project's workspace is
+missing.
 
-## 3. Configure each project Makefile
+## 3. Add the root Makefile
 
-In `00-hello-world/Makefile`:
+Copy `sdlc-curriculum/shared/templates/language/Makefile` to the repository root. Replace its
+`TEMPLATE:` markers:
 
-```make
-CURRICULUM_ROOT ?= ../sdlc-curriculum
-BIN_DIR := <directory where your build leaves the dp-* executables>
+- the repository and language names in the header;
+- the `toolchain` target, which prints each tool's version and fails unless it is on the
+  repository's release line. For example:
 
-DP_BUILD     = <build command>
-DP_INSTALL   = <install into $(BINDIR)>
-DP_UNINSTALL = <remove from $(BINDIR)>
-DP_UNIT_TEST = <unit tests>
-DP_LINT      = <linters and type checkers>
-DP_FORMAT    = <formatter>
-DP_CLEAN     = <remove build artifacts>
-DP_DISTCLEAN = <also remove virtualenvs and caches>
-```
+  ```make
+  toolchain:
+  	python3 --version || python --version
+  	make --version | head -1
+  	go version | tee /dev/stderr | grep -q 'go1\.27\.'
+  ```
 
-Check the configuration:
+  Where the native compiler legitimately differs by OS (C, C++, Objective-C), use a short
+  compile-and-run probe for the language standard instead.
 
-```sh
-make -C 00-hello-world help    # every hook should say "defined"
-make -C 00-hello-world test    # unit tests, then the 10 public black-box tests
-```
+Leave `IMPLEMENTED` empty.
 
 ## 4. Define the toolchain image
 
-In `Containerfile`, start from the language's **official image**, pinned by digest, and add
-what the curriculum's tooling needs: `python3` (3.11 or newer, for the black-box runner) and
-`make`. Building, unit tests, and black-box tests then all run in that one image.
+In `Containerfile`, start from the language's **official image**, pinned by its
+multi-architecture index digest. Add what the curriculum's tooling needs, `make` and
+`python3` (3.11 or newer), and point tool caches that the image places in read-only system
+locations at `/dp-cache`:
 
 ```dockerfile
-FROM docker.io/library/rust:1-slim-trixie@sha256:<index digest>
+FROM docker.io/library/rust:1.99-slim-trixie@sha256:<index digest>
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3 make \
+    && apt-get install -y --no-install-recommends make python3 \
     && rm -rf /var/lib/apt/lists/*
-ENV DP_IN_CONTAINER=1
+ENV CARGO_HOME=/dp-cache/cargo \
+    DP_IN_CONTAINER=1
 ```
-
-`BASE-MAKEFILE` includes the curriculum's copy of `tools/container.mk`, so `make all`,
-`make test`, and every other target run in this image by default. Use `DP_RUNTIME=local`
-for native builds on your own operating system.
 
 ## 5. Replace the template CI with the curriculum's
 
-Copy `sdlc-curriculum/shared/ci/cross-platform-ci.yml` over `.github/workflows/ci.yml`. Then
-edit the two places marked `EDIT`: the list of implemented projects, and the toolchain setup
-step. Pin any action you add to a full commit SHA. The workflow keeps the organization's
-**Shared tooling**, **DCO**, and **CI result** jobs. It runs `make all`, `lint`, `test`,
-`test-hidden`, and an install round trip in a **Podman container** on Linux, and **natively**
-(`DP_RUNTIME=local`) on Linux, macOS, and Windows.
+Copy `sdlc-curriculum/shared/ci/cross-platform-ci.yml` over `.github/workflows/ci.yml`, and
+replace its `EDIT` step with the native toolchain setup for every OS, on the same release line
+(official setup actions where they exist, pinned to full commit SHAs). CI runs `make check` in
+a Podman container, and `make check roundtrip` natively on Linux, macOS, and Windows.
 
-Add your package ecosystem (for example `pip`, `uv`, `cargo`, or `gomod`) to
-`.github/dependabot.yml`.
+Then check everything locally:
 
-## 6. Design before you build
+```sh
+make check                    # in the toolchain container
+DP_RUNTIME=local make check   # natively
+```
 
-Complete `hld.md` and `lld.md` before you write code, then keep `rtm.md` and
-`master-test-plan.md` current as you implement (curriculum
-[Principle 11](https://github.com/dialectic-playground/sdlc-curriculum#the-20-core-engineering-principles)).
-A project is done when `make lint test test-hidden` passes on all three operating systems.
+## 6. Implement projects one at a time
+
+1. Complete the project's `hld.md` and `lld.md` before you write code (curriculum
+   [Principle 11](https://github.com/dialectic-playground/sdlc-curriculum#the-20-core-engineering-principles)).
+2. Implement it under the project's `src/`, set `BIN_DIR` and the `DP_*` hooks in its
+   `Makefile`, and add the language's package ecosystem to `.github/dependabot.yml` once a
+   manifest exists.
+3. Pass `make -C <project> test` in the container and natively.
+4. Add the project to `IMPLEMENTED` in the root `Makefile`. CI then runs `all`, `lint`,
+   `test`, `test-hidden`, and the install round trip for it everywhere, with no workflow
+   changes.
+5. Update its row on the language's [reference page](../reference/languages/index.md).
 
 ## Variations
 
@@ -99,18 +105,13 @@ A project is done when `make lint test test-hidden` passes on all three operatin
 
 ```sh
 git -C sdlc-curriculum fetch --tags
-git -C sdlc-curriculum checkout v1.2.0
-git add sdlc-curriculum && git commit -s -m "build: upgrade sdlc-curriculum to v1.2.0"
+git -C sdlc-curriculum checkout v1.3.0
+git add sdlc-curriculum && git commit -s -m "build: upgrade sdlc-curriculum to v1.3.0"
 ```
 
 Read the release notes first. A MAJOR release can change specified behavior or fixtures. A
 release that keeps the specification version (`spec_version`) unchanged never requires
 implementation changes.
-
-### Implement only some projects
-
-List only the projects you implement in the CI matrix. Unimplemented projects need no
-directory.
 
 The authoritative contract is the curriculum's
 [implementation contract](https://github.com/dialectic-playground/sdlc-curriculum/blob/main/shared/templates/assignment/src-README.md.tmpl)

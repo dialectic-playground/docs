@@ -89,7 +89,7 @@ In a container, `dp-run`:
 | `docs` | `ghcr.io/astral-sh/uv` (Python 3.12) + `make` |
 | `sdlc-curriculum` | `python:3.12-slim-trixie` + `make`, `git` |
 | `repo-template` | `debian:trixie-slim` + `make`, `git`; each new repository replaces it with its own toolchain |
-| Language repositories | The language's official image + `python3` (for the black-box runner) + `make` |
+| Language repositories (16) | The language's official image + `python3` (for the black-box runner) + `make`; Objective-C uses `debian:trixie-slim` + GCC Objective-C + GNUstep Base. See [Languages](languages/index.md). |
 
 Every base image is pinned by its multi-architecture index digest, and Dependabot's `docker`
 ecosystem keeps it current.

@@ -128,6 +128,22 @@ nav:
           - reference/curriculum/index.md
       - Languages:
           - reference/languages/index.md
+          - C: reference/languages/c.md
+          - C#: reference/languages/cs.md
+          - C++: reference/languages/cpp.md
+          - Go: reference/languages/go.md
+          - Haskell: reference/languages/hs.md
+          - Java: reference/languages/java.md
+          - JavaScript: reference/languages/js.md
+          - Julia: reference/languages/jl.md
+          - Objective-C: reference/languages/objc.md
+          - Perl: reference/languages/pl.md
+          - PHP: reference/languages/php.md
+          - Python: reference/languages/py.md
+          - Ruby: reference/languages/rb.md
+          - Rust: reference/languages/rs.md
+          - TypeScript: reference/languages/ts.md
+          - Visual Basic: reference/languages/vb.md
   - Explanation:
       - explanation/index.md
       - Specification-driven development: explanation/specification-driven-development.md

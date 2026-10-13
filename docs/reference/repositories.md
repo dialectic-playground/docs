@@ -11,9 +11,22 @@ GitHub *About* section (defined in
 | [`docs`](https://github.com/dialectic-playground/docs) | Documentation site for Dialectic Playground, organized with Diátaxis: tutorials, how-to guides, reference, and explanation. | Active |
 | [`sdlc-curriculum`](https://github.com/dialectic-playground/sdlc-curriculum) | Specification-driven curriculum: specs, black-box tests, and templates for eleven cross-platform CLI projects. | Active |
 | [`repo-template`](https://github.com/dialectic-playground/repo-template) | Template for new Dialectic Playground repositories: standard files, CI, Dependabot, and conventions. | Active |
-| `py` | Python implementation of the curriculum. | Planned |
-| `rs` | Rust implementation of the curriculum. | Planned |
-| `go` | Go implementation of the curriculum. | Planned |
+| [`c`](https://github.com/dialectic-playground/c) | C implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`cs`](https://github.com/dialectic-playground/cs) | C# implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`cpp`](https://github.com/dialectic-playground/cpp) | C++ implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`go`](https://github.com/dialectic-playground/go) | Go implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`hs`](https://github.com/dialectic-playground/hs) | Haskell implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`java`](https://github.com/dialectic-playground/java) | Java implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`js`](https://github.com/dialectic-playground/js) | JavaScript implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`jl`](https://github.com/dialectic-playground/jl) | Julia implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`objc`](https://github.com/dialectic-playground/objc) | Objective-C implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`pl`](https://github.com/dialectic-playground/pl) | Perl implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`php`](https://github.com/dialectic-playground/php) | PHP implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`py`](https://github.com/dialectic-playground/py) | Python implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`rb`](https://github.com/dialectic-playground/rb) | Ruby implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`rs`](https://github.com/dialectic-playground/rs) | Rust implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`ts`](https://github.com/dialectic-playground/ts) | TypeScript implementation of the Dialectic Playground SDLC curriculum. | Active |
+| [`vb`](https://github.com/dialectic-playground/vb) | Visual Basic implementation of the Dialectic Playground SDLC curriculum. | Active |
 
 ## Status values
 
@@ -21,7 +34,7 @@ GitHub *About* section (defined in
 | :-- | :-- |
 | Active | The repository exists and is maintained |
 | Planned | Committed to, but not yet created; not linked until it exists |
-| Roadmap | A candidate for the future (for example further languages: C, C#, Java, JavaScript, TypeScript, PHP, Ruby) |
+| Roadmap | A candidate for the future |
 
 To add a repository, follow [Add a repository](../how-to/add-a-repository.md). It keeps this
 page, the organization profile, and the GitHub *About* text in step.
