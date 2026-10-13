@@ -66,8 +66,20 @@ the navigation. Pull requests cannot be merged while this fails.
 
 ## 6. Open a pull request
 
-Push a branch and open a pull request against `main`. The **CI** workflow builds the site.
-After you merge, it deploys to <https://dialectic-playground.github.io/docs/>.
+Commit with a sign-off, push a branch, and open a pull request against `main`:
+
+```sh
+git commit -s -m "docs(how-to): add guide for running the black-box tests"
+```
+
+- Give the pull request a [Conventional Commit](https://www.conventionalcommits.org/) title.
+  Pull requests are squash-merged, so the title becomes the commit message on `main`.
+- Every commit needs a `Signed-off-by:` line (the **DCO** check verifies this).
+- The **CI result** check must pass: it covers the strict build and the DCO check.
+
+After you merge, the site deploys to <https://dialectic-playground.github.io/docs/>. The
+[organization contributing guide](https://github.com/dialectic-playground/.github/blob/main/CONTRIBUTING.md)
+describes these rules in full.
 
 ## Linking to the curriculum
 

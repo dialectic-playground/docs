@@ -1,6 +1,10 @@
 # Contributing to the docs
 
-Thank you for improving the Dialectic Playground documentation. The full, step-by-step guide
+Thank you for improving the Dialectic Playground documentation. This file adds the
+documentation-specific rules to the
+[organization-wide contributing guide](https://github.com/dialectic-playground/.github/blob/main/CONTRIBUTING.md)
+(Conventional Commit pull request titles, squash merges, DCO sign-off) and the
+[Code of Conduct](https://github.com/dialectic-playground/.github/blob/main/CODE_OF_CONDUCT.md). The full, step-by-step guide
 is published on the site as
 [Contribute documentation](https://dialectic-playground.github.io/docs/how-to/contribute-documentation/)
 (source: [`docs/how-to/contribute-documentation.md`](docs/how-to/contribute-documentation.md)).
@@ -22,7 +26,9 @@ is published on the site as
 4. **Link, don't copy.** Authoritative specifications live in
    [`sdlc-curriculum`](https://github.com/dialectic-playground/sdlc-curriculum).
 5. **Build strictly** before you push: `uv run mkdocs build --strict`.
-6. **Open a pull request** against `main`. The **CI** workflow must pass.
+6. **Commit with sign-off** (`git commit -s`) and **open a pull request** against `main`
+   with a Conventional Commit title, e.g. `docs(how-to): add guide for X`. The **CI result**
+   check must pass.
 
 ## Style
 
