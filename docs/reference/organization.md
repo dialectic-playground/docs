@@ -76,15 +76,29 @@ including organization owners:
 | Convention | Detail |
 | :-- | :-- |
 | Workflow file and name | `.github/workflows/ci.yml`, named **CI**, with every job and step named |
+| Jobs | **Container (podman)** and **Native** (both run `make check`), **Shared tooling** (except in `.github`), **DCO**, **CI result** |
 | Required check | A final **CI result** job that passes only if every other job succeeded or was skipped |
 | DCO | A **DCO** job that fails a pull request if any commit lacks a `Signed-off-by:` line matching its author (bot commits are exempt) |
 | Pull request titles | [Conventional Commits](https://www.conventionalcommits.org/); the title becomes the squash commit on `main` |
+
+## Container-first development (every repository)
+
+| Convention | Detail |
+| :-- | :-- |
+| Where tasks run | In the repository's toolchain container: Podman, then Docker, then the local system (`DP_RUNTIME`) |
+| Entry points | `make <goal>` (`make check` = everything CI checks) and `tools/dp-run <command>` |
+| Toolchain image | `Containerfile`: an official image pinned by digest, extended only as needed; kept current by Dependabot (`docker`) |
+| Shared tooling | `tools/dp-run`, `tools/container.mk`: byte-identical to the canonical copies in `.github` (the **Shared tooling** CI job checks this) |
+| CI | A **Container (podman)** job and **Native** jobs run the same `make` targets |
+
+Details: [Container tooling](container-tooling.md).
 
 ## Repository files (from `repo-template`)
 
 `LICENSE` (MIT), `.editorconfig`, `.gitattributes` (LF line endings), `.gitignore`,
 `.github/CODEOWNERS` (`@dialectic-playground/maintainers`), `.github/dependabot.yml`,
-`.github/workflows/ci.yml`, and a README skeleton. Each file shares one base across all
+`.github/workflows/ci.yml`, `Makefile`, `Containerfile`, `.devcontainer/devcontainer.json`,
+`tools/dp-run`, `tools/container.mk`, and a README skeleton. Each file shares one base across all
 repositories, and any repository-specific lines are marked as such.
 
 ## See also

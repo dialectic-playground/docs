@@ -37,7 +37,10 @@ overrides/                    ← Material theme extensions
 mkdocs.yml                    ← site configuration and navigation
 pyproject.toml / uv.lock      ← locked build dependencies
 CONTRIBUTING.md               ← authoring rules for this site
-.github/workflows/ci.yml      ← CI: strict build, DCO, Pages deployment
+Makefile, Containerfile       ← container-first entry points and the toolchain image
+.devcontainer/                ← dev container using the same image
+tools/dp-run, tools/container.mk ← shared container tooling (copies of the .github canonical files)
+.github/workflows/ci.yml      ← CI: container and native builds, shared-tooling check, DCO, Pages deployment
 .github/dependabot.yml        ← keeps actions and the docs toolchain current
 ```
 
@@ -47,13 +50,21 @@ are complete.
 
 ## Building locally
 
-Requires [uv](https://docs.astral.sh/uv/). It installs Python and the locked dependencies.
+Container-first: every target runs in the toolchain container built from
+[`Containerfile`](Containerfile) (the official `astral-sh/uv` image with Python 3.12), using
+Podman, then Docker, then the local system. Override the choice with
+`DP_RUNTIME=podman|docker|local`. You need `make` and Podman or Docker. With
+`DP_RUNTIME=local`, you need [uv](https://docs.astral.sh/uv/) instead.
 
 ```sh
-uv sync                          # install the locked toolchain into .venv
-uv run mkdocs serve              # live preview at http://127.0.0.1:8000/docs/
-uv run mkdocs build --strict     # the same check CI runs; warnings are errors
+make serve                       # live preview at http://127.0.0.1:8000/docs/
+make check                       # the strict build CI runs; warnings are errors
+make dp-shell                    # a shell in the toolchain environment
+DP_RUNTIME=local make check      # the same, on your system
 ```
+
+In the container, the virtual environment lives in the mounted cache
+(`~/.cache/dialectic-playground`), so it never conflicts with a local `.venv`.
 
 To change dependencies, run `uv add <package>` or `uv lock --upgrade`, and commit
 `pyproject.toml` and `uv.lock` together.

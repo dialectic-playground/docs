@@ -4,13 +4,16 @@ This guide shows how to add or change a page on this site and get it published.
 
 ## Before you start
 
-You need `git` and [uv](https://docs.astral.sh/uv/). uv installs the right Python and the
-pinned MkDocs version for you.
+You need `git`, `make`, and [Podman](https://podman.io/) (or Docker). Every command below runs
+in the repository's toolchain container, which brings the pinned Python and MkDocs versions.
+Without a container engine, or with `DP_RUNTIME=local`, the commands run on your system,
+which then needs [uv](https://docs.astral.sh/uv/). See
+[Container-first development](../explanation/container-first-development.md).
 
 ```sh
 git clone https://github.com/dialectic-playground/docs.git
 cd docs
-uv sync
+make sync
 ```
 
 ## 1. Decide which kind of page you are writing
@@ -50,7 +53,7 @@ table on the quadrant's `index.md`.
 ## 4. Preview locally
 
 ```sh
-uv run mkdocs serve
+make serve
 ```
 
 Open <http://127.0.0.1:8000/docs/>. The page reloads as you save.
@@ -58,7 +61,7 @@ Open <http://127.0.0.1:8000/docs/>. The page reloads as you save.
 ## 5. Check the build the way CI does
 
 ```sh
-uv run mkdocs build --strict
+make check
 ```
 
 `--strict` turns warnings into errors: broken links, missing anchors, and pages missing from

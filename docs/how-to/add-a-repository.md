@@ -23,7 +23,9 @@ gh repo create dialectic-playground/<name> --public \
 ```
 
 The organization's security configuration (Dependabot, CodeQL, secret scanning with push
-protection, private vulnerability reporting) applies automatically. The community health
+protection, private vulnerability reporting) applies automatically. The template also brings
+the container-first files: `Makefile`, `Containerfile`, `.devcontainer/`, and the shared
+`tools/dp-run` and `tools/container.mk`. The community health
 files (Code of Conduct, contributing guide, security policy, issue forms, pull request
 template) are inherited from the `.github` repository.
 
@@ -52,12 +54,19 @@ gh api repos/dialectic-playground/<name>/rulesets --jq '.[].name'   # Protect de
 
 In the new repository, open the first pull request:
 
-1. Replace every `TEMPLATE:` marker in `README.md`. CI fails until none remain.
-2. Describe the repository's layout in the README.
-3. Add the repository's own CI jobs to `.github/workflows/ci.yml`, and list them in the
-   `needs:` of the **CI result** job. Keep the `dco` and `ci-result` jobs, and pin every
-   action to a full commit SHA. The organization requires this.
-4. Add the repository's package ecosystems to `.github/dependabot.yml`.
+1. Replace every `TEMPLATE:` marker in `README.md`, `Containerfile`, and `Makefile`. CI fails
+   until none remain.
+2. **Toolchain image:** in `Containerfile`, replace the base image with the official image for
+   the repository's toolchain, pinned by digest (`FROM image:tag@sha256:…`). Add only what
+   it lacks, such as `make`, and keep `ENV DP_IN_CONTAINER=1`.
+3. **Tasks:** add the repository's targets to `Makefile`, inside the `ifeq ($(DP_DELEGATE),)`
+   guard. `make check` must run everything CI checks.
+4. **CI:** keep the **Container (podman)**, **Native**, **Shared tooling**, **DCO**, and
+   **CI result** jobs in `.github/workflows/ci.yml`. Add the native toolchain setup to the
+   Native job, and pin every action to a full commit SHA. The organization requires this.
+5. Describe the repository's layout in the README, and add its package ecosystems to
+   `.github/dependabot.yml` (the `docker` ecosystem is already there).
+6. Check it locally: `make check` (container) and `DP_RUNTIME=local make check` (native).
 
 For a **language implementation repository**, follow
 [Set up a language repository](set-up-a-language-repository.md) for this step instead.
@@ -88,7 +97,8 @@ either:
 
 ## 7. Verify
 
-- [ ] The **CI result** check passes on `main`.
+- [ ] The **CI result** check passes on `main`, including the Container, Native, and Shared
+      tooling jobs.
 - [ ] `gh api repos/dialectic-playground/<name>/community/profile --jq .health_percentage` reports `100`.
 - [ ] The **Protect default branch** ruleset is present, and the About text matches the
       canonical description.

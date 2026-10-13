@@ -1,7 +1,11 @@
 # CI for the documentation site.
 #
-# - Pull requests: strict build (broken links/anchors fail) and DCO sign-off check.
-# - Pushes to main: strict build, then deploy to GitHub Pages.
+# Container-first: the checks are make targets (see Makefile), run two ways:
+# - Container (podman): `make check` in the same toolchain image developers use.
+# - Native (ubuntu-latest): `make check` with DP_RUNTIME=local; on main it also produces the
+#   Pages artifact that the deploy job publishes.
+# - Shared tooling: tools/dp-run and tools/container.mk match the canonical copies.
+# - DCO: Signed-off-by on every pull-request commit.
 # - "CI result" is the single check required by the branch ruleset (same name in every repo).
 #
 # Actions are pinned to full commit SHAs (organization policy); Dependabot keeps them current.
@@ -17,9 +21,26 @@ permissions:
   contents: read
 
 jobs:
-  build:
-    name: Build site
+  container:
+    name: Container (podman)
     runs-on: ubuntu-latest
+    env:
+      DP_RUNTIME: podman
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Show toolchain environment
+        run: make dp-info
+
+      - name: make check
+        run: make check
+
+  native:
+    name: Native (ubuntu-latest)
+    runs-on: ubuntu-latest
+    env:
+      DP_RUNTIME: local
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -27,17 +48,31 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
 
-      - name: Install locked dependencies
-        run: uv sync --locked
-
-      - name: Build site (strict)
-        run: uv run mkdocs build --strict
+      - name: make check
+        run: make check
 
       - name: Upload Pages artifact
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: site
+
+  shared-tooling:
+    name: Shared tooling
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: tools/dp-run and tools/container.mk match the canonical copies
+        run: |
+          status=0
+          for file in tools/dp-run tools/container.mk; do
+            curl -fsSL "https://raw.githubusercontent.com/dialectic-playground/.github/main/$file" \
+              | diff -u - "$file" \
+              || { echo "::error::$file differs from the canonical copy in dialectic-playground/.github"; status=1; }
+          done
+          exit "$status"
 
   dco:
     name: DCO
@@ -68,7 +103,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    needs: build
+    needs: [container, native, shared-tooling]
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -89,7 +124,7 @@ jobs:
   ci-result:
     name: CI result
     if: always()
-    needs: [build, dco]
+    needs: [container, native, shared-tooling, dco]
     runs-on: ubuntu-latest
     steps:
       - name: Fail if any required job failed or was cancelled
