@@ -1,6 +1,6 @@
 # Your first curriculum project
 
-!!! info "Planned tutorial: this page is a placeholder"
+!!! info "Draft tutorial: written once the first language implementation exists"
     **Audience:** a developer new to the curriculum, comfortable with one programming language
     and a terminal.
 
@@ -9,7 +9,7 @@
     and seen all of its public black-box tests pass. On the way they will have met the
     curriculum's essentials: specifications, the universal `Makefile`, and the test runner.
 
-## Planned outline
+## Outline
 
 1. **What you will build:** show the finished tool's output (`Hello, World!`, `--help`, an
    error message).

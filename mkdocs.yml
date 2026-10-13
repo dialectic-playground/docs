@@ -115,12 +115,14 @@ nav:
       - Your first curriculum project: tutorials/first-curriculum-project.md
   - How-to guides:
       - how-to/index.md
+      - Add a repository: how-to/add-a-repository.md
       - Set up a language repository: how-to/set-up-a-language-repository.md
       - Run the black-box tests: how-to/run-the-black-box-tests.md
       - Contribute documentation: how-to/contribute-documentation.md
   - Reference:
       - reference/index.md
       - Repositories: reference/repositories.md
+      - Organization settings: reference/organization.md
       - Curriculum:
           - reference/curriculum/index.md
       - Languages:

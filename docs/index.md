@@ -54,11 +54,13 @@ different need:
 | :-- | :-- |
 | Learn by building your first curriculum tool | [Your first curriculum project](tutorials/first-curriculum-project.md) |
 | Start implementing the curriculum in a new language | [Set up a language repository](how-to/set-up-a-language-repository.md) |
+| Bring any new repository online consistently | [Add a repository](how-to/add-a-repository.md) |
+| See how the organization is configured | [Organization settings](reference/organization.md) |
 | See every repository and its status | [Repositories](reference/repositories.md) |
 | Understand why specifications come first | [Specification-driven development](explanation/specification-driven-development.md) |
 | Write or improve these docs | [Contribute documentation](how-to/contribute-documentation.md) |
 
 !!! note "Early days"
-    The site's structure is in place, and many pages are still placeholders that describe
-    the content planned for them. Contributions are welcome. See
+    The site's structure is in place. Pages marked *Draft* describe the content planned for
+    them; most are complete. Contributions are welcome. See
     [Contribute documentation](how-to/contribute-documentation.md).
