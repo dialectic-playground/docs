@@ -8,11 +8,11 @@ The [`rb`](https://github.com/dialectic-playground/rb) repository implements the
 | Property | Value |
 | :-- | :-- |
 | Repository | [`dialectic-playground/rb`](https://github.com/dialectic-playground/rb) |
-| Status | Active: repository and toolchain ready; no projects implemented yet |
+| Status | Active: Project 00 implemented |
 | File extension | `.rb` |
 | Release line | Ruby 4.0 |
 | Build / package tool | Bundler |
-| Curriculum | Submodule pinned to [v1.2.1](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.2.1) |
+| Curriculum | Submodule pinned to [v1.5.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.5.0) |
 | Brand accent | `#CC342D`, glyph `rb`; GitHub Linguist `#701516` (lightened (Ruby's own brand red) for contrast on the dark background) |
 
 ## Language characteristics
@@ -28,19 +28,34 @@ The [`rb`](https://github.com/dialectic-playground/rb) repository implements the
 
 | Environment | Toolchain |
 | :-- | :-- |
-| Container | `ruby:4.0-slim-trixie`, pinned by digest in [`Containerfile`](https://github.com/dialectic-playground/rb/blob/main/Containerfile), plus `make` and `python3` |
-| Native CI | ruby/setup-ruby (4.0, includes Bundler) |
+| Container | `ruby:4.0-slim-trixie`, pinned by digest in [`Containerfile`](https://github.com/dialectic-playground/rb/blob/main/Containerfile), plus `make`, `python3`, and `gcc`/`libc6-dev` (for the C extensions of the locked development gems) |
+| Native CI | ruby/setup-ruby (4.0, includes Bundler; on Windows, RubyInstaller with the MSYS2 devkit) |
 
 `make toolchain` verifies both environments. It checks that every tool is on the release line above.
 
+### Project tooling
+
+What each project's `Makefile` hooks run. Versions are the ones pinned in the repository
+(lockfile, `Containerfile`, or CI).
+
+| Purpose | Tool |
+| :-- | :-- |
+| Unit tests | minitest 6.0.6 (a bundled gem, so it is listed in each `Gemfile`) |
+| Lint | RuboCop 1.92.0 |
+| Format | RuboCop `--autocorrect` |
+| Dependencies | Per-project `Gemfile` and committed `Gemfile.lock` (exact versions and checksums); the tools themselves use only the standard library and run without Bundler |
+| Build output (`BIN_DIR`) | `src/bin/`: an extensionless `#!/usr/bin/env ruby` launcher |
+| Install | Copies `src/bin` and `src/lib` to `$(LIBDIR)/rb/<project>/` and writes a `#!/bin/sh` launcher to `$(BINDIR)` |
+
 ## Implemented projects
 
-None yet. A project is implemented once it is listed in `IMPLEMENTED` in the repository's
-root `Makefile`.
+A project is implemented once it is listed in `IMPLEMENTED` in the repository's root
+`Makefile`. CI then builds, lints, and tests it in the container and natively on Linux,
+macOS, and Windows.
 
 | # | Project | Status |
 | :-- | :-- | :-- |
-| 00 | hello-world | Not started |
+| 00 | hello-world | [Implemented](https://github.com/dialectic-playground/rb/tree/main/00-hello-world) |
 | 01 | echo | Not started |
 | 02 | cat | Not started |
 | 03 | head-tail | Not started |

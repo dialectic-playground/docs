@@ -14,7 +14,7 @@ toolchain.
 
 ```sh
 git submodule add https://github.com/dialectic-playground/sdlc-curriculum
-git -C sdlc-curriculum checkout v1.2.1
+git -C sdlc-curriculum checkout v1.5.0
 git add .gitmodules sdlc-curriculum
 ```
 
@@ -56,6 +56,10 @@ Copy `sdlc-curriculum/shared/templates/language/Makefile` to the repository root
 
 Leave `IMPLEMENTED` empty.
 
+`make check` fails while any `TEMPLATE:` marker remains. It searches only git-tracked files
+(outside `.github/`, `tools/`, and the submodule), so dependency folders that a build creates
+inside a project, such as `node_modules/` or `vendor/`, are never searched.
+
 ## 4. Define the toolchain image
 
 In `Containerfile`, start from the language's **official image**, pinned by its
@@ -77,7 +81,10 @@ ENV CARGO_HOME=/dp-cache/cargo \
 Copy `sdlc-curriculum/shared/ci/cross-platform-ci.yml` over `.github/workflows/ci.yml`, and
 replace its `EDIT` step with the native toolchain setup for every OS, on the same release line
 (official setup actions where they exist, pinned to full commit SHAs). CI runs `make check` in
-a Podman container, and `make check roundtrip` natively on Linux, macOS, and Windows.
+a Podman container, and `make check roundtrip` natively on Linux, macOS, and Windows. Keep the
+template's `schedule` trigger (a weekly run that catches toolchain drift) and its **CI result**
+job, which checks every job of the run through the Actions API (see
+[Organization settings](../reference/organization.md#ci-conventions-every-repository)).
 
 Then check everything locally:
 
@@ -93,11 +100,21 @@ DP_RUNTIME=local make check   # natively
 2. Implement it under the project's `src/`, set `BIN_DIR` and the `DP_*` hooks in its
    `Makefile`, and add the language's package ecosystem to `.github/dependabot.yml` once a
    manifest exists.
-3. Pass `make -C <project> test` in the container and natively.
+   For an interpreted or managed-runtime language, `BIN_DIR` can hold `#!` launcher scripts
+   instead of native executables; the black-box runner starts their interpreter itself on
+   Windows (see [Run the black-box tests](run-the-black-box-tests.md#test-script-tools-on-windows)).
+   `DP_INSTALL` then puts only a launcher in `$(BINDIR)` and the payload in
+   `$(LIBDIR)/<repository>/<project>/` (`LIBDIR` defaults to
+   `$(PREFIX)/lib/dialectic-playground`); `DP_UNINSTALL` removes both.
+3. Pass `make -C <project> all test test-hidden lint` in the container and natively.
 4. Add the project to `IMPLEMENTED` in the root `Makefile`. CI then runs `all`, `lint`,
    `test`, `test-hidden`, and the install round trip for it everywhere, with no workflow
    changes.
-5. Update its row on the language's [reference page](../reference/languages/index.md).
+5. Record the NFR measurements in `master-test-plan.md`. On a managed runtime or interpreter,
+   memory limits are measured above the runtime's own baseline
+   ([CONV-31](https://github.com/dialectic-playground/sdlc-curriculum/blob/main/shared/CLI-CONVENTIONS.md)).
+6. Update its row on the language's [reference page](../reference/languages/index.md) and in
+   the curriculum's [implementation status](../reference/curriculum/index.md#implementation-status).
 
 ## Variations
 
@@ -105,13 +122,14 @@ DP_RUNTIME=local make check   # natively
 
 ```sh
 git -C sdlc-curriculum fetch --tags
-git -C sdlc-curriculum checkout v1.3.0
-git add sdlc-curriculum && git commit -s -m "build: upgrade sdlc-curriculum to v1.3.0"
+git -C sdlc-curriculum checkout vX.Y.Z      # the new release tag
+git add sdlc-curriculum && git commit -s -m "build: upgrade sdlc-curriculum to vX.Y.Z"
 ```
 
 Read the release notes first. A MAJOR release can change specified behavior or fixtures. A
 release that keeps the specification version (`spec_version`) unchanged never requires
-implementation changes.
+implementation changes, though it can ask for template updates (for example v1.5.0's
+**CI result** job and weekly CI schedule).
 
 The authoritative contract is the curriculum's
 [implementation contract](https://github.com/dialectic-playground/sdlc-curriculum/blob/main/shared/templates/assignment/src-README.md.tmpl)

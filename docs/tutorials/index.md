@@ -20,6 +20,6 @@ is not the goal.
 
 | Tutorial | You will… | Status |
 | :-- | :-- | :-- |
-| [Your first curriculum project](first-curriculum-project.md) | Build, test, and ship `dp-hello` (Project 00), step by step, in one language | Draft |
+| [Your first curriculum project](first-curriculum-project.md) | Build, test, and ship `dp-hello` (Project 00), step by step, in one language | Ready |
 
 **Status:** *Ready* pages are complete. *Draft* pages describe their planned content and audience.

@@ -60,7 +60,10 @@ different need:
 | Understand why specifications come first | [Specification-driven development](explanation/specification-driven-development.md) |
 | Write or improve these docs | [Contribute documentation](how-to/contribute-documentation.md) |
 
-!!! note "Early days"
-    The site's structure is in place. Pages marked *Draft* describe the content planned for
-    them; most are complete. Contributions are welcome. See
+!!! note "Status"
+    Project 00 (`dp-hello`) is implemented in all sixteen
+    [language repositories](reference/languages/index.md), against curriculum
+    [v1.5.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.5.0). See
+    the [implementation status](reference/curriculum/index.md#implementation-status). Every page
+    on this site is complete. Contributions are welcome. See
     [Contribute documentation](how-to/contribute-documentation.md).
