@@ -71,8 +71,12 @@ In the `.github` repository, follow the
 2. Run `tools/scaffold-assets.sh <name>`, then `tools/generate-assets.sh <name>`.
 3. Change the registry row to *Active*, and add the set to the preview table.
 
-Then, in the new repository's **Settings → General → Social preview**, upload
-`assets/<name>/dist/social-preview.png`. GitHub offers no API for this step.
+Then, in the new repository's settings, make two UI-only changes. GitHub offers no API for
+either:
+
+- **Settings → General → Social preview:** upload `assets/<name>/dist/social-preview.png`.
+- **Settings → Moderation options → Reported content:** accept content reports, so the
+  Code of Conduct's private *Report content → repository admins* channel works.
 
 ## 6. List it everywhere
 
@@ -90,3 +94,4 @@ Then, in the new repository's **Settings → General → Social preview**, uploa
       canonical description.
 - [ ] The repository appears in the profile and on the docs site, with the same description
       and status.
+- [ ] The social preview is uploaded, and content reporting is enabled.
