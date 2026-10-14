@@ -14,7 +14,7 @@ toolchain.
 
 ```sh
 git submodule add https://github.com/dialectic-playground/sdlc-curriculum
-git -C sdlc-curriculum checkout v1.5.0
+git -C sdlc-curriculum checkout v1.6.0
 git add .gitmodules sdlc-curriculum
 ```
 
@@ -129,7 +129,8 @@ git add sdlc-curriculum && git commit -s -m "build: upgrade sdlc-curriculum to v
 Read the release notes first. A MAJOR release can change specified behavior or fixtures. A
 release that keeps the specification version (`spec_version`) unchanged never requires
 implementation changes, though it can ask for template updates (for example v1.5.0's
-**CI result** job and weekly CI schedule).
+**CI result** job and weekly CI schedule) or new project workspaces (v1.6.0 adds Projects
+11–52, and `check-repository` expects a workspace for every project).
 
 The authoritative contract is the curriculum's
 [implementation contract](https://github.com/dialectic-playground/sdlc-curriculum/blob/main/shared/templates/assignment/src-README.md.tmpl)
