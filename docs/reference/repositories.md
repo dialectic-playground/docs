@@ -9,7 +9,7 @@ GitHub *About* section (defined in
 | :-- | :-- | :-- |
 | [`.github`](https://github.com/dialectic-playground/.github) | Organization profile, community health defaults, brand assets, and asset tooling for Dialectic Playground. | Active |
 | [`docs`](https://github.com/dialectic-playground/docs) | Documentation site for Dialectic Playground, organized with Diátaxis: tutorials, how-to guides, reference, and explanation. | Active |
-| [`sdlc-curriculum`](https://github.com/dialectic-playground/sdlc-curriculum) | Specification-driven curriculum: specs, black-box tests, and templates for eleven cross-platform CLI projects. | Active |
+| [`sdlc-curriculum`](https://github.com/dialectic-playground/sdlc-curriculum) | Specification-driven curriculum: specs, black-box tests, and templates for fifty-three cross-platform CLI projects. | Active |
 | [`repo-template`](https://github.com/dialectic-playground/repo-template) | Template for new Dialectic Playground repositories: standard files, CI, Dependabot, and conventions. | Active |
 | [`c`](https://github.com/dialectic-playground/c) | C implementation of the Dialectic Playground SDLC curriculum. | Active |
 | [`cs`](https://github.com/dialectic-playground/cs) | C# implementation of the Dialectic Playground SDLC curriculum. | Active |
