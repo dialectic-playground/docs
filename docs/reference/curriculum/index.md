@@ -6,7 +6,7 @@ documents are the source of truth.
 
 | Current release | Spec version | Pin language repositories to |
 | :-- | :-- | :-- |
-| [v1.5.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.5.0) | `1.0.0` (printed by every tool's `--version`) | the release tag, never a branch |
+| [v1.6.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.6.0) | `1.0.0` (printed by every tool's `--version`) | the release tag, never a branch |
 
 Release tags and the spec version are separate: a release can add templates or tooling
 without changing specified behavior. See the curriculum's
@@ -21,15 +21,15 @@ None of these releases changes the specification version (`spec_version` stays `
 
 | Release | Changes |
 | :-- | :-- |
+| [v1.6.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.6.0) | The applications-programming track: Projects 11–52, adapted from Johnsonbaugh and Kalin, *Applications Programming in ANSI C*, adding 53 `dp-` tools and bringing the suites to 1060 tests. New CLI-CONVENTIONS §10 (CONV-32 … CONV-38) for data, numbers, prompts, and random numbers. Projects 00–10 are unchanged. Language repositories need a workspace for every new project when they pin this release. |
 | [v1.5.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.5.0) | Tooling and CI hardening; no specification, test, or fixture changes. The CI template's **CI result** job checks every job of its run attempt through the Actions API, and CI runs weekly. The language skeleton's `TEMPLATE:` marker check searches only git-tracked files. |
 | [v1.4.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.4.0) | Clarifications from the first implementations. CONV-12 (scan order): only option *syntax* errors compete with `--help`/`--version`; operand and option-value errors are detected after the scan (Project 00 FR-07/FR-09 and hidden test 10 updated). New CONV-31: NFR memory limits apply to native builds; managed and interpreted runtimes are measured above their runtime baseline. |
-| [v1.3.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.3.0) | Script launchers on every OS. On Windows the black-box runner starts a `#!` script's interpreter directly, resolved on `PATH` (CONV-27). `BASE-MAKEFILE`: `BIN_DIR` may hold `#!` scripts, and the new `LIBDIR` (`$(PREFIX)/lib/dialectic-playground`) holds script payloads. |
 
 
 ## Projects
 
-The curriculum has two tracks. Projects 11–52 are on `main` and ship in the next minor
-release.
+The curriculum has two tracks. Projects 11–52 arrived in
+[v1.6.0](https://github.com/dialectic-playground/sdlc-curriculum/releases/tag/v1.6.0).
 
 ### System-level tooling (00–10)
 
