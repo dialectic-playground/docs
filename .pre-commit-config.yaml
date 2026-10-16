@@ -169,3 +169,8 @@ repos:
     rev: 0.38.2
     hooks:
       - id: check-dependabot
+  # Keeps uv.lock in sync with pyproject.toml
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.13.0
+    hooks:
+      - id: uv-lock
