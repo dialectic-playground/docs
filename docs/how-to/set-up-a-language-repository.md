@@ -14,7 +14,7 @@ toolchain.
 
 ```sh
 git submodule add https://github.com/dialectic-playground/sdlc-curriculum
-git -C sdlc-curriculum checkout v1.6.0
+git -C sdlc-curriculum checkout v1.7.0
 git add .gitmodules sdlc-curriculum
 ```
 
