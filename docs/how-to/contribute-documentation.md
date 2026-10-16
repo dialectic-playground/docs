@@ -20,10 +20,10 @@ make sync
 
 Every page is exactly one of the four Diátaxis types. Two questions decide which:
 
-|  | **Practical steps** (action) | **Theoretical knowledge** (cognition) |
-| :-- | :-- | :-- |
+|                                      | **Practical steps** (action)      | **Theoretical knowledge** (cognition)  |
+| :----------------------------------- | :-------------------------------- | :------------------------------------- |
 | **Serves study** (acquiring a skill) | [Tutorial](../tutorials/index.md) | [Explanation](../explanation/index.md) |
-| **Serves work** (applying a skill) | [How-to guide](index.md) | [Reference](../reference/index.md) |
+| **Serves work** (applying a skill)   | [How-to guide](index.md)          | [Reference](../reference/index.md)     |
 
 If your draft mixes types, for example a how-to guide that stops to explain design
 history, split it. Keep the steps in the guide and link to an explanation page for the
@@ -35,12 +35,12 @@ the reasoning behind this.
 Copy the template for your page type from `templates/` into the right quadrant directory
 under `docs/`:
 
-| Page type | Template | Directory |
-| :-- | :-- | :-- |
-| Tutorial | `templates/tutorial.md` | `docs/tutorials/` |
-| How-to guide | `templates/how-to.md` | `docs/how-to/` |
-| Reference | `templates/reference.md` | `docs/reference/` (or a subsection) |
-| Explanation | `templates/explanation.md` | `docs/explanation/` |
+| Page type    | Template                   | Directory                           |
+| :----------- | :------------------------- | :---------------------------------- |
+| Tutorial     | `templates/tutorial.md`    | `docs/tutorials/`                   |
+| How-to guide | `templates/how-to.md`      | `docs/how-to/`                      |
+| Reference    | `templates/reference.md`   | `docs/reference/` (or a subsection) |
+| Explanation  | `templates/explanation.md` | `docs/explanation/`                 |
 
 Name the file in lowercase with hyphens, after its subject. How-to guides are named after
 their goal, for example `set-up-a-language-repository.md`.

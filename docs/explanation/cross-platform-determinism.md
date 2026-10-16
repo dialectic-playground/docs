@@ -22,8 +22,8 @@ output, so a failure always points at a real difference, never at a fuzzy matche
 
 Windows conventionally ends text lines with CR LF, and many languages' "text mode" streams
 silently translate LF to CR LF on output. The conventions require every line a tool
-*generates* to end in a single LF on every platform, with standard streams written in binary
-mode. Data a tool *copies* from its input, such as file contents, passes through unchanged:
+_generates_ to end in a single LF on every platform, with standard streams written in binary
+mode. Data a tool _copies_ from its input, such as file contents, passes through unchanged:
 CR bytes are data, not line endings. Project 01 (`dp-echo`) and project 02 (`dp-cat`) make this
 lesson explicit.
 

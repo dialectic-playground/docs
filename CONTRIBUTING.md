@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Contributing to the docs](#contributing-to-the-docs)
+  - [The rules in brief](#the-rules-in-brief)
+  - [Style](#style)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Contributing to the docs
 
 Thank you for improving the Dialectic Playground documentation. This file adds the
@@ -15,10 +26,10 @@ is published on the site as
    reference, or explanation, and put it in that section. If a draft mixes types, split it and
    link the parts.
 
-   |  | Action | Cognition |
-   | :-- | :-- | :-- |
-   | **Study** | Tutorial | Explanation |
-   | **Work** | How-to guide | Reference |
+   |           | Action       | Cognition   |
+   | :-------- | :----------- | :---------- |
+   | **Study** | Tutorial     | Explanation |
+   | **Work**  | How-to guide | Reference   |
 
 2. **Start from a template** in [`templates/`](templates/).
 3. **Register the page** in the `nav:` section of `mkdocs.yml` and in its section's `index.md`

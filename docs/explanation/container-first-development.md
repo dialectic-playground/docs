@@ -37,7 +37,7 @@ repository, and each repository's CI fails if its copies drift:
   the same path inside the container, keeps your working directory, and creates files with
   your user and group IDs, so nothing ends up owned by root.
 - **`tools/container.mk`** is included at the top of each repository's `Makefile`. When you run
-  `make check`, it re-runs `make check` *inside* the container. Inside, the variable
+  `make check`, it re-runs `make check` _inside_ the container. Inside, the variable
   `DP_IN_CONTAINER=1` tells the same Makefile to run the goal natively, so containers never
   nest.
 
@@ -57,12 +57,12 @@ The runtime is chosen in a fixed order: **Podman**, then **Docker**, then the **
 system**. The one-line banner on standard error always says which one was used. Override the
 choice with environment or `make` variables:
 
-| You want to… | Use |
-| :-- | :-- |
-| Use the default order | nothing (`DP_RUNTIME=auto`) |
-| Force an engine | `DP_RUNTIME=podman` or `DP_RUNTIME=docker` |
-| Use your own installed toolchain | `DP_RUNTIME=local` |
-| Try a different image | `DP_IMAGE=<image reference>` |
+| You want to…                     | Use                                        |
+| :------------------------------- | :----------------------------------------- |
+| Use the default order            | nothing (`DP_RUNTIME=auto`)                |
+| Force an engine                  | `DP_RUNTIME=podman` or `DP_RUNTIME=docker` |
+| Use your own installed toolchain | `DP_RUNTIME=local`                         |
+| Try a different image            | `DP_IMAGE=<image reference>`               |
 
 The [container tooling reference](../reference/container-tooling.md) lists every variable,
 target, and convention.
@@ -78,7 +78,7 @@ container. The two goals are reconciled like this:
 - **Native verification** uses `DP_RUNTIME=local`. That is how you check behavior on your own
   operating system, and it is the only mode in which a macOS or Windows build is produced.
 - **CI does both.** Every repository runs its `make` targets in a Podman container on Linux
-  *and* natively. Curriculum and language repositories run natively on Linux, macOS, and
+  _and_ natively. Curriculum and language repositories run natively on Linux, macOS, and
   Windows. A change is accepted only when all of them pass.
 
 ## Trade-offs

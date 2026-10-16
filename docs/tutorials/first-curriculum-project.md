@@ -23,7 +23,7 @@ The commands below are the same in every language; only the code differs. The ex
 Python, and the finished implementations in
 [`py`](https://github.com/dialectic-playground/py/tree/main/00-hello-world) and
 [`rs`](https://github.com/dialectic-playground/rs/tree/main/00-hello-world) are worked
-examples to compare against. First, we record the repository name (the *slug*) of our
+examples to compare against. First, we record the repository name (the _slug_) of our
 language. We use `py` here; use your language's slug from the
 [Languages](../reference/languages/index.md) table:
 
@@ -132,6 +132,9 @@ how they cooperate. The curriculum asks for design before code
 handles both on every OS. We write the smallest program that prints `Hello, World!` followed by
 a single line feed, then set `BIN_DIR` and `DP_BUILD` in `00-hello-world/Makefile`.
 
+<!-- Admonition bodies are indented, so markdownlint reads its fences as indented code. -->
+<!-- markdownlint-disable MD046 -->
+<!-- prettier-ignore-start -->
 !!! example "Worked example: Python"
     `00-hello-world/pyproject.toml` declares the package and its console script:
 
@@ -167,6 +170,8 @@ a single line feed, then set `BIN_DIR` and `DP_BUILD` in `00-hello-world/Makefil
     BIN_DIR := .venv/bin
     DP_BUILD     = uv sync
     ```
+<!-- prettier-ignore-end -->
+<!-- markdownlint-enable MD046 -->
 
 Now we run the public suite:
 
@@ -214,7 +219,7 @@ Try 'dp-hello --help' for more information.
 ```
 
 We scan the arguments from left to right and stop at the first `--help` or `--version`. Only
-an option *syntax* error found earlier wins over them. Operands and option values are checked
+an option _syntax_ error found earlier wins over them. Operands and option values are checked
 after the scan, so `dp-hello extra --help` prints the help, while `dp-hello extra` reports
 `extra operand 'extra'`. We implement every message in the DIAGNOSTICS table, then run both
 suites:

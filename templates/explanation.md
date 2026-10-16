@@ -1,4 +1,17 @@
-# *Title: the topic, often "About …" or a question*
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [_Title: the topic, often "About …" or a question_](#title-the-topic-often-about--or-a-question)
+  - [_Context / background_](#context--background)
+  - [_The decision or idea, and the reasoning behind it_](#the-decision-or-idea-and-the-reasoning-behind-it)
+  - [_Alternatives and trade-offs_](#alternatives-and-trade-offs)
+  - [Further reading](#further-reading)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# _Title: the topic, often "About …" or a question_
 
 <!--
 EXPLANATION GUIDANCE (delete before publishing). Explanation is discussion that deepens
@@ -9,20 +22,20 @@ understanding.
 - Keep the scope bounded: one topic per page.
 -->
 
-*Open with the question this page explores and why it matters.*
+_Open with the question this page explores and why it matters._
 
-## *Context / background*
+## _Context / background_
 
-*…*
+_…_
 
-## *The decision or idea, and the reasoning behind it*
+## _The decision or idea, and the reasoning behind it_
 
-*…*
+_…_
 
-## *Alternatives and trade-offs*
+## _Alternatives and trade-offs_
 
-*…*
+_…_
 
 ## Further reading
 
-- *Related explanation pages, external sources.*
+- _Related explanation pages, external sources._

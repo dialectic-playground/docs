@@ -11,12 +11,12 @@ for the test runner.
 
 From the project directory (for example `00-hello-world/`):
 
-| Command | Runs |
-| :-- | :-- |
-| `make test` | Language unit tests (`DP_UNIT_TEST`), then the **public** suite |
-| `make test-blackbox` | The public suite only (10 tests) |
-| `make test-hidden` | The **hidden** suite only (10 tests); CI runs it on every OS |
-| `make grade` | Both suites |
+| Command              | Runs                                                            |
+| :------------------- | :-------------------------------------------------------------- |
+| `make test`          | Language unit tests (`DP_UNIT_TEST`), then the **public** suite |
+| `make test-blackbox` | The public suite only (10 tests)                                |
+| `make test-hidden`   | The **hidden** suite only (10 tests); CI runs it on every OS    |
+| `make grade`         | Both suites                                                     |
 
 Each target builds first (`make all`), then calls the curriculum's runner with your `BIN_DIR`.
 Like every target, they run in your repository's toolchain container by default, so they
@@ -34,12 +34,12 @@ python3 ../sdlc-curriculum/shared/tools/run-tests.py \
     ../sdlc-curriculum/projects/00-hello-world/tests/public
 ```
 
-| Option | Effect |
-| :-- | :-- |
+| Option          | Effect                                                                                               |
+| :-------------- | :--------------------------------------------------------------------------------------------------- |
 | `--bin-dir DIR` | Where the built `dp-*` tools are: native executables (`.exe` is accepted on Windows) or `#!` scripts |
-| `--only ID` | Run only this test; repeat it to run several |
-| `--timeout S` | Per-step timeout in seconds (default 10) |
-| `-q` | Print PASS/FAIL only, without diffs |
+| `--only ID`     | Run only this test; repeat it to run several                                                         |
+| `--timeout S`   | Per-step timeout in seconds (default 10)                                                             |
+| `-q`            | Print PASS/FAIL only, without diffs                                                                  |
 
 The runner exits with `0` when every test passes, `1` when a test fails, and `2` for a
 configuration error such as a missing tool.
@@ -64,17 +64,17 @@ byte-for-byte.
 
 ## Fix the most common causes
 
-| Symptom in the diff | Cause | Fix |
-| :-- | :-- | :-- |
-| `\r` at the end of every line (Windows only) | Text-mode stdout translates LF to CRLF | Write stdout and stderr in binary mode ([CONV-03][conv]) |
-| Last line differs only in its newline | Missing or extra trailing LF | Follow the SRS output definition exactly |
-| `No such file or directory` vs. an OS-specific message | The OS error text was printed | Use the fixed reason table ([CONV-16][conv]) |
-| Program name differs (`dp-cat.exe:` or a path) | `argv[0]` was used in messages | Use the canonical tool name ([CONV-01][conv]) |
-| Paths contain `\` on Windows | The OS path joiner was used | Join constructed paths with `/` ([CONV-20][conv]) |
-| Help text differs | Help text was paraphrased | Copy it byte-for-byte from the user manual's HELP OUTPUT ([CONV-23][conv]) |
-| `tool 'dp-x' not found` | `make all` did not produce the tool in `BIN_DIR` | Check `DP_BUILD` and `BIN_DIR` with `make help` |
-| `… is neither an .exe nor a script with a #! line` (Windows only) | The tool in `BIN_DIR` is a script without a `#!` first line | Start the launcher with a `#!` line (see below) |
-| `interpreter '…' not found on PATH` (Windows only) | The `#!` interpreter is not installed or not on `PATH` | Put the interpreter (for example `node`, `perl`, `java`) on `PATH` |
+| Symptom in the diff                                               | Cause                                                       | Fix                                                                        |
+| :---------------------------------------------------------------- | :---------------------------------------------------------- | :------------------------------------------------------------------------- |
+| `\r` at the end of every line (Windows only)                      | Text-mode stdout translates LF to CRLF                      | Write stdout and stderr in binary mode ([CONV-03][conv])                   |
+| Last line differs only in its newline                             | Missing or extra trailing LF                                | Follow the SRS output definition exactly                                   |
+| `No such file or directory` vs. an OS-specific message            | The OS error text was printed                               | Use the fixed reason table ([CONV-16][conv])                               |
+| Program name differs (`dp-cat.exe:` or a path)                    | `argv[0]` was used in messages                              | Use the canonical tool name ([CONV-01][conv])                              |
+| Paths contain `\` on Windows                                      | The OS path joiner was used                                 | Join constructed paths with `/` ([CONV-20][conv])                          |
+| Help text differs                                                 | Help text was paraphrased                                   | Copy it byte-for-byte from the user manual's HELP OUTPUT ([CONV-23][conv]) |
+| `tool 'dp-x' not found`                                           | `make all` did not produce the tool in `BIN_DIR`            | Check `DP_BUILD` and `BIN_DIR` with `make help`                            |
+| `… is neither an .exe nor a script with a #! line` (Windows only) | The tool in `BIN_DIR` is a script without a `#!` first line | Start the launcher with a `#!` line (see below)                            |
+| `interpreter '…' not found on PATH` (Windows only)                | The `#!` interpreter is not installed or not on `PATH`      | Put the interpreter (for example `node`, `perl`, `java`) on `PATH`         |
 
 ## Test script tools on Windows
 
