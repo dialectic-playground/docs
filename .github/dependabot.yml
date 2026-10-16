@@ -5,6 +5,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     groups:
       github-actions:
         patterns: ["*"]
@@ -15,6 +17,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     groups:
       docs-toolchain:
         patterns: ["*"]
@@ -25,6 +29,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: build
     # The Python line (3.12) is an organization-wide decision shared with the native CI jobs;
@@ -33,3 +39,16 @@ updates:
       - dependency-name: "astral-sh/uv"
         update-types:
           ["version-update:semver-major", "version-update:semver-minor"]
+
+  # Hook revisions in .pre-commit-config.yaml (enforced by the pre-commit CI job).
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      pre-commit:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci
