@@ -13,3 +13,5 @@ Thumbs.db
 
 # Repository-specific: MkDocs build output
 /site/
+
+node_modules/

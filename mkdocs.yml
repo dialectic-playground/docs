@@ -46,9 +46,9 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
   features:
-    - navigation.tabs          # one tab per Diátaxis quadrant
+    - navigation.tabs # one tab per Diátaxis quadrant
     - navigation.sections
-    - navigation.indexes       # each quadrant's index.md is its landing page
+    - navigation.indexes # each quadrant's index.md is its landing page
     - navigation.top
     - navigation.footer
     - search.suggest

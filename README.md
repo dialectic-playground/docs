@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [docs](#docs)
+  - [Structure](#structure)
+  - [Building locally](#building-locally)
+  - [Publishing](#publishing)
+  - [Contributing](#contributing)
+  - [Notes on the toolchain](#notes-on-the-toolchain)
+  - [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dialectic-playground/.github/main/assets/docs/dist/logo-dark.svg">
@@ -44,8 +59,8 @@ tools/dp-run, tools/container.mk ← shared container tooling (copies of the .gi
 .github/dependabot.yml        ← keeps actions and the docs toolchain current
 ```
 
-Pages marked *Draft* describe their planned content and audience. They are completed as real
-needs appear, which is how Diátaxis suggests documentation should grow. Pages marked *Ready*
+Pages marked _Draft_ describe their planned content and audience. They are completed as real
+needs appear, which is how Diátaxis suggests documentation should grow. Pages marked _Ready_
 are complete.
 
 ## Building locally

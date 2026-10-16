@@ -22,8 +22,8 @@ is never a debate about which document is right.
 
 ## Black-box and white-box together
 
-The byte-exact tests prove that an implementation *behaves* as specified on every platform.
-They cannot prove that it is well *engineered*. So every implementation also produces
+The byte-exact tests prove that an implementation _behaves_ as specified on every platform.
+They cannot prove that it is well _engineered_. So every implementation also produces
 white-box deliverables: a High-Level Design, a Low-Level Design, a Requirements Traceability
 Matrix, and a Master Test Plan. Together they show how the code meets each requirement and
 how that was verified. The 20 engineering principles cover what neither kind of test can

@@ -1,4 +1,17 @@
-# *Title: what the learner will build or achieve*
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [_Title: what the learner will build or achieve_](#title-what-the-learner-will-build-or-achieve)
+  - [Before you begin](#before-you-begin)
+  - [_Step 1: imperative step title_](#step-1-imperative-step-title)
+  - [_Step 2: …_](#step-2-)
+  - [What you have achieved](#what-you-have-achieved)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# _Title: what the learner will build or achieve_
 
 <!--
 TUTORIAL GUIDANCE (delete before publishing). A tutorial is a lesson. You are responsible
@@ -10,16 +23,16 @@ for the learner's success.
 - Use "we": "First, we create…". Tell the learner what they will achieve up front.
 -->
 
-In this tutorial we will *build/do X*. By the end you will have *a concrete, visible
-result*, and you will have used *the key ideas, briefly listed*.
+In this tutorial we will _build/do X_. By the end you will have _a concrete, visible
+result_, and you will have used _the key ideas, briefly listed_.
 
 ## Before you begin
 
-- *Exact prerequisites: installed tools and versions, accounts, prior tutorials.*
+- _Exact prerequisites: installed tools and versions, accounts, prior tutorials._
 
-## *Step 1: imperative step title*
+## _Step 1: imperative step title_
 
-*One action.*
+_One action._
 
 ```sh
 *command*
@@ -31,11 +44,11 @@ You should see:
 *expected output*
 ```
 
-*One sentence noting what just happened, without a lecture.*
+_One sentence noting what just happened, without a lecture._
 
-## *Step 2: …*
+## _Step 2: …_
 
 ## What you have achieved
 
-*Recap the result and the skills practised. Point to related How-to guides and Explanation
-pages for next steps.*
+_Recap the result and the skills practised. Point to related How-to guides and Explanation
+pages for next steps._

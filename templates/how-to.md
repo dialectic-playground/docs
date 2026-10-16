@@ -1,4 +1,19 @@
-# *Title: the goal, e.g. "Set up a language repository"*
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [_Title: the goal, e.g. "Set up a language repository"_](#title-the-goal-eg-set-up-a-language-repository)
+  - [Before you start](#before-you-start)
+  - [Steps](#steps)
+  - [Variations](#variations)
+    - [_If you need …_](#if-you-need-)
+  - [Troubleshooting](#troubleshooting)
+  - [Related](#related)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# _Title: the goal, e.g. "Set up a language repository"_
 
 <!--
 HOW-TO GUIDANCE (delete before publishing). A how-to guide is a recipe for a competent user.
@@ -8,34 +23,34 @@ HOW-TO GUIDANCE (delete before publishing). A how-to guide is a recipe for a com
 - Omit anything not needed to reach the goal. Completeness belongs in Reference.
 -->
 
-This guide shows how to *achieve the goal*.
+This guide shows how to _achieve the goal_.
 
 ## Before you start
 
-- *Assumed knowledge, and the state the reader must be in.*
+- _Assumed knowledge, and the state the reader must be in._
 
 ## Steps
 
-1. *Action.*
+1. _Action._
 
-    ```sh
-    *command*
-    ```
+   ```sh
+   *command*
+   ```
 
-2. *Action, with the condition under which it applies.*
+2. _Action, with the condition under which it applies._
 
 ## Variations
 
-### *If you need …*
+### _If you need …_
 
-*The adjusted steps.*
+_The adjusted steps._
 
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
-| :-- | :-- | :-- |
-| *…* | *…* | *…* |
+| :------ | :---- | :-- |
+| _…_     | _…_   | _…_ |
 
 ## Related
 
-- *Reference pages for details; Explanation pages for background.*
+- _Reference pages for details; Explanation pages for background._

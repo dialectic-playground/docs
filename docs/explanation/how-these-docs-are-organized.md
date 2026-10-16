@@ -10,38 +10,38 @@ Diátaxis starts from the observation that people come to documentation with dif
 needs. Documentation that tries to meet all of them on one page ends up meeting none of them
 well. It names two distinctions:
 
-- **Action or cognition:** does the reader need to *do* something, or to *know* something?
-- **Acquisition or application:** is the reader *studying* (building a skill) or *working*
+- **Action or cognition:** does the reader need to _do_ something, or to _know_ something?
+- **Acquisition or application:** is the reader _studying_ (building a skill) or _working_
   (using a skill they already have)?
 
 Crossing the two gives four kinds of documentation, each with a single purpose:
 
-|  | **Action** (doing) | **Cognition** (knowing) |
-| :-- | :-- | :-- |
-| **Acquisition** (study) | Tutorials | Explanation |
-| **Application** (work) | How-to guides | Reference |
+|                         | **Action** (doing) | **Cognition** (knowing) |
+| :---------------------- | :----------------- | :---------------------- |
+| **Acquisition** (study) | Tutorials          | Explanation             |
+| **Application** (work)  | How-to guides      | Reference               |
 
 Each kind has its own character:
 
-| Kind | Oriented to | Answers | Analogy |
-| :-- | :-- | :-- | :-- |
-| [Tutorials](../tutorials/index.md) | Learning | "Can you teach me to…?" | A cooking lesson |
-| [How-to guides](../how-to/index.md) | Tasks | "How do I…?" | A recipe |
-| [Reference](../reference/index.md) | Information | "What is…?" | An encyclopedia entry |
-| [Explanation](../explanation/index.md) | Understanding | "Why…?" | An essay on culinary history |
+| Kind                                   | Oriented to   | Answers                 | Analogy                      |
+| :------------------------------------- | :------------ | :---------------------- | :--------------------------- |
+| [Tutorials](../tutorials/index.md)     | Learning      | "Can you teach me to…?" | A cooking lesson             |
+| [How-to guides](../how-to/index.md)    | Tasks         | "How do I…?"            | A recipe                     |
+| [Reference](../reference/index.md)     | Information   | "What is…?"             | An encyclopedia entry        |
+| [Explanation](../explanation/index.md) | Understanding | "Why…?"                 | An essay on culinary history |
 
 ## Why we use it
 
 Dialectic Playground has several distinct audiences. Newcomers learn the curriculum,
 implementers set up language repositories, reviewers check specifications, and contributors
 want to know why the design is the way it is. Diátaxis gives each of them a predictable place
-to look. It also gives authors a simple test for every page: *which one need does this
-serve?*
+to look. It also gives authors a simple test for every page: _which one need does this
+serve?_
 
 ## How the site applies it
 
 - **Quadrant first.** The four kinds are the top-level navigation tabs. Topics such as the
-  curriculum or a language implementation appear *inside* each quadrant, rather than each
+  curriculum or a language implementation appear _inside_ each quadrant, rather than each
   topic getting its own mini-site.
 - **One purpose per page.** When a draft serves two needs, we split it and link the parts.
   For example, a how-to guide links to an explanation page instead of stopping to explain.
@@ -51,7 +51,7 @@ serve?*
 - **Templates.** `templates/` in this repository has a starting skeleton for each kind of
   page. See [Contribute documentation](../how-to/contribute-documentation.md).
 - **Grow organically.** Diátaxis discourages planning large empty structures. Each quadrant
-  starts small and gains pages as real needs appear. Pages marked *Draft* describe the
+  starts small and gains pages as real needs appear. Pages marked _Draft_ describe the
   content planned for them, so the structure communicates intent.
 
 ## Further reading
