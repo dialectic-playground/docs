@@ -2,7 +2,7 @@
 #
 # The official uv image with Python 3.12, plus make. The base image is pinned by
 # multi-architecture index digest; Dependabot (docker) keeps it current.
-FROM ghcr.io/astral-sh/uv:python3.12-trixie-slim@sha256:e28141cccc682844c7bed0cb7e5b2b4522c1f72f1d5116c7d22710d0d421f7dc
+FROM ghcr.io/astral-sh/uv:python3.12-trixie-slim@sha256:717e09370920d9f72cffdb55584c237bbb97ae0a50f9f483b4f736af17c92018
 
 # Debian keeps only the current version of each package, so apt versions cannot be pinned
 # reproducibly; the base image is pinned by digest instead.
